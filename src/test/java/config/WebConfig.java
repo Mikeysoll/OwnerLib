@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 
 @Config.Sources({
-        "classpath:${isLocal}.properties",
+        "classpath:${env}.properties",
         "classpath:local.properties"
 })
 public interface WebConfig extends Config {
