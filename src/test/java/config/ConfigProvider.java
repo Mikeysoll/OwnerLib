@@ -2,7 +2,10 @@ package config;
 
 import org.aeonbits.owner.ConfigFactory;
 
-public class WebConfigProvider {
+public final class ConfigProvider {
+
+    private ConfigProvider() {}
+    
     private static final WebConfig webConfig = ConfigFactory.create(
             WebConfig.class, System.getProperties()
     );
