@@ -1,5 +1,6 @@
-package base;
+package tests;
 
+import config.ConfigProvider;
 import config.WebConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -9,9 +10,9 @@ import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class WebTestBase {
-    private static final WebConfig config = ConfigFactory.create(
-            WebConfig.class, System.getProperties()
-    );
+
+    private static final WebConfig config = ConfigProvider.webConfig();
+
 
     @BeforeAll
     static void setUp() {
@@ -22,6 +23,7 @@ public class WebTestBase {
         if (config.isRemote()){
             remote = config.remoteUrl();
         }
+        // holdBrowserOpen=true;
     }
 
     @AfterAll
